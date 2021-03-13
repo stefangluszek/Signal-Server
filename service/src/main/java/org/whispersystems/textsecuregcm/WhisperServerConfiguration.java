@@ -33,7 +33,6 @@ import io.dropwizard.client.JerseyClientConfiguration;
 /** @noinspection MismatchedQueryAndUpdateOfCollection, WeakerAccess */
 public class WhisperServerConfiguration extends Configuration {
 
-  @NotNull
   @Valid
   @JsonProperty
   private TwilioConfiguration twilio;

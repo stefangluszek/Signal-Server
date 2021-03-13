@@ -26,19 +26,15 @@ import java.util.List;
 
 public class TwilioConfiguration {
 
-  @NotEmpty
   @JsonProperty
   private String accountId;
 
-  @NotEmpty
   @JsonProperty
   private String accountToken;
 
-  @NotNull
   @JsonProperty
   private List<String> numbers;
 
-  @NotEmpty
   @JsonProperty
   private String localDomain;
 
