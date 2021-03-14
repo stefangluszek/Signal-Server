@@ -11,3 +11,56 @@ abuseDatabase:
   driverClass:  com.mysql.jdbc.Driver
   user:         signal
   url:          jdbc:mysql://127.0.0.1:3306/signal_db
+
+accountsDatabase:
+  driverClass:  com.mysql.jdbc.Driver
+  user:         signal
+  url:          jdbc:mysql://127.0.0.1:3306/signal_db
+
+accountDatabaseCrawler:
+  chunkSize:        1000
+  chunkIntervalMs:  1000000
+
+apn:
+  sandbox:          true
+  bundleId:         notused
+  pushKey:          notused
+  pushCertificate:  notused
+
+awsAttachments:
+  accessKey:    notused
+  accessSecret: notused
+  bucket:       notused
+  region:       notused
+
+backupService:
+  userAuthenticationTokenSharedSecret: 13371337
+
+cache:
+  url: redis://127.0.0.1:6379/cache
+  replicaUrls:
+    - redis://127.0.0.1:6379/cacheReplica
+
+cdn:
+  accessKey:    notused
+  accessSecret: notused
+  bucket:       notused
+  region:       notused
+
+directory:
+  redis:
+    url: redis://127.0.0.1:6379/directory
+    replicaUrls:
+      - redis://127.0.0.1:6379/directoryCache
+  client:
+    userAuthenticationTokenSharedSecret: 13371337
+    userAuthenticationTokenUserIdSecret: 13371337
+  server:
+    replicationUrl:           notused
+    replicationPassword:      notused
+    replicationCaCertificate: notused
+  sqs:
+    accessKey:    notused
+    accessSecret: notused
+    queueUrl:     notused
+    region:       notused
