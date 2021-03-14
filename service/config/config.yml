@@ -1,8 +1,13 @@
 testDevices:
   - number: "+13371337"
-    code: 1337
+    code:   1337
 
 limits:
   smsDestination:
-    bucketSize: 1000
-    leakRatePerMinute: 0.0
+    bucketSize:         1000
+    leakRatePerMinute:  0.0
+
+abuseDatabase:
+  driverClass:  com.mysql.jdbc.Driver
+  user:         signal
+  url:          jdbc:mysql://127.0.0.1:3306/signal_db
