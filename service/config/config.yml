@@ -8,14 +8,22 @@ limits:
     leakRatePerMinute:  0.0
 
 abuseDatabase:
-  driverClass:  com.mysql.jdbc.Driver
+  driverClass:  org.postgresql.Driver
   user:         signal
-  url:          jdbc:mysql://127.0.0.1:3306/signal_db
+  password:     signal
+  url:          jdbc:postgresql://127.0.0.1:5432/signal_abuse_db
 
 accountsDatabase:
-  driverClass:  com.mysql.jdbc.Driver
+  driverClass:  org.postgresql.Driver
   user:         signal
-  url:          jdbc:mysql://127.0.0.1:3306/signal_db
+  password:     signal
+  url:          jdbc:postgresql://127.0.0.1:5432/signal_accounts_db
+
+messageStore:
+  driverClass:  org.postgresql.Driver
+  user:         signal
+  password:     signal
+  url:          jdbc:postgresql://127.0.0.1:5432/signal_messages_db
 
 accountDatabaseCrawler:
   chunkSize:        1000
@@ -51,7 +59,7 @@ directory:
   redis:
     url: redis://127.0.0.1:6379/directory
     replicaUrls:
-      - redis://127.0.0.1:6379/directoryCache
+      - redis://127.0.0.1:6379/directoryReplica
   client:
     userAuthenticationTokenSharedSecret: 13371337
     userAuthenticationTokenUserIdSecret: 13371337
@@ -64,3 +72,64 @@ directory:
     accessSecret: notused
     queueUrl:     notused
     region:       notused
+
+gcm:
+  senderId: 0
+  apiKey:   notused
+
+gcpAttachments:
+  domain:         notused
+  email:          notused
+  rsaSigningKey:  notused
+  maxSizeInBytes: 1000
+
+messageCache:
+  redis:
+    url: redis://127.0.0.1:6379/messageCache
+    replicaUrls:
+      - redis://127.0.0.1:6379/messageCacheReplica
+
+pubsub:
+  url: redis://127.0.0.1:6379/pubsub
+  replicaUrls:
+    - redis://127.0.0.1:6379/pubsubReplica
+
+push:
+  queueSize: 200
+
+pushScheduler:
+  url: redis://127.0.0.1:6379/pushScheduler
+  replicaUrls:
+    - redis://127.0.0.1:6379/pushSchedulerReplica
+
+recaptcha:
+  secret: notused
+
+remoteConfig:
+  authorizedTokens:
+  - notused
+
+storageService:
+  userAuthenticationTokenSharedSecret: 13371337
+
+turn:
+  secret: notused
+  uris:
+  - notused
+
+# generated with:
+# java -jar service/target/TextSecureServer-3.21.jar certificate -ca
+# java -jar service/target/TextSecureServer-3.21.jar certificate --key <private_key_from_above> --id 1337
+unidentifiedDelivery:
+  certificate: CiYIuQoSIQVbHLbN+Fmli3GHX/QIUc9UCtBQsyiiNajr1G43fWuPHBJAGPMGC8wsVsMybv20NDOQyY2pf41hnroUCrXmfIm8pmKZ1/bRy6pqPpVZqo7tEnkCIJ4Lhtmaf9sJ3hsRq56nDQ==
+  privateKey: eOxvFjmn0EA7ckrToS3oPb2rw2pkGRmDfy7FKjZzw2k=
+
+voiceVerification:
+  url: notused
+  locales:
+  - en
+
+zkConfig:
+  serverSecret: 00000usXOzS6zRWjvYtEs4p5IZdWhqeubGE+xmwQ1aV9pR8NJtsGU594ecDmtC4KA5ifp5NfrA8fhFXPODhKZ1VaRzAvpyX9NPmAVkJ/YU3xfVzhkJ81vkeyhOzdt6VNVPkrrjzQX++bRQuTX1OSidski1mZ+Re7OWppZAQamILdIJFFmFqgGv9j6pS1tbQUL4Bgqr3g9XVpBT3/oBNmzhaVyE3SvyNAqYXbkmp0rpKQhT+5nQQRcbg8w4XwIY84kcL7U5W5ZHNRYVDYfdx8TPNLfAT8nmfJDrHCejQQeRHZZR8BuPFSd4lk9gCeAJoV49rVhYM/rSGwt1krZDf1jaKAObjmOLh1JNAsZV8e6VLFQrM/tIwWp/ec1HEAC2t5ztABb1d3fZQlS+44hM6DzvMJFv6bPaDrDR8dF+Q4BpywUI9dkut/u1W/ih0Ca73le/uCZRTW1pmnsn33jCBS+lFhWKBw8WQm3Psp03WE4She3U05Y2XjgBiE0mOlleoPrH9JatjA04g00QlMWLn2jbpHsCCMlJwHkArIJGUUGnFPnenYOPFEM87SxxTPO0cFEoJdgIxeMVrNTgZ3xBsiYyxNcYElu2VL/+pRPFSak9njuIBtlK59MMujipiEONN6JY/CvtqwtCKAV9Sbe03ko4IWrQ6wmh67RRsG50ky1Q/FxJ8dAdMBLj0gQtUaAznLVc0+fWbFtM/7/kho+C/0VAgpUA8Arf3EdpHnnCfNcRtOMUiPexIeMHnrbHkIPTkTdH1rIgMl6/AsksjlSMVq7m3fX9w1axRiiDyiHxAbtA5iXScbyOHZMzr3h1SfsQ1/ore/fzeiykxlX+3XABoL0PJ6YM62VFq8Br2bl84fuOkR+tIf/GmeLvnoEY5oE75ki6F5yH3TQkBT1+6WgpqMJNHr7wivIsPp1l9vbnQAxhTkkMSfL05V3+1Z0uT61YCdzy2AJQD4s4siGRSghAWW1m+xQLrWti1/icPwFTpIvUxFFlV9ti+ar4IW3XxsF+D3oIH4wyYZFSHyvW1AAbGz1a7sgvK8VZ4EXRzGUjU3CXOLNC1Vk6g3yFhgfvxRN0nklSd4kmo1gpXpSRIi5JjMNZ1vzyOYZc1DWO0tqOwGgnv/8fl7/NYUVimDGVVkNrG+0osEgldnLCCbauewbluL1G8nT4RdGxpJIr1ohWU4
+  serverPublic: FL6UWFYoHDxZCbc+ynTdYThKF7dTTljZeOAGITSY6WV6g+sf0lq2MDTiDTRCUxYufaNukewIIyUnAeQCsgkZRfg96CB+MMmGRUh8r1tQAGxs9Wu7ILyvFWeBF0cxlI1NwlzizQtVZOoN8hYYH78UTdJ5JUneJJqNYKV6UkSIuSasb7SiwSCV2csIJtq57BuW4vUbydPhF0bGkkivWiFZTg
+  enabled:      true
