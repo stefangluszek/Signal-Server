@@ -1,3 +1,8 @@
 testDevices:
   - number: "+13371337"
     code: 1337
+
+limits:
+  smsDestination:
+    bucketSize: 1000
+    leakRatePerMinute: 0.0
