@@ -32,7 +32,41 @@ accountDatabaseCrawler:
 apn:
   sandbox:          true
   bundleId:         notused
-  pushKey:          notused
+  # generated with:
+  # openssl genrsa 2048
+  # Normally this would be provided by apple but we aren't interested
+  # in sending any notifications so we only need a valid private key
+  # to initialize the APNSender.
+  pushKey: |
+    -----BEGIN RSA PRIVATE KEY-----
+    MIIEpQIBAAKCAQEAzpRILIZIOkVTzAH3t/DaYOkXjggA11k0P9BBOkyNTwM99FKV
+    Q3sd/lgy49Zkcer2sLIZJOPBuBWofarvvhyndIXYR82msFZm4hSCEU0T1Mn6uND5
+    C5dMAihwxWa+BYWd8OOYd+drLfL1lU12wS4gVa0zrlRscH7rKst/WsCo+Kogkxbu
+    mr76gbEH1BWRYpC1p+zlzjXwkz27zybM/dhpONG2bRVIw0TZNWvumkZkSv5jGhRP
+    1U4mMzMTg+0ZVUZWpw0//Dm/Us2t8D1mkNunkVp/LtJVQb+aAL40JRSxDpflnSrq
+    ezN9kjSI0TWk5O8VeB2zEzSF5Y2LWq9Bv0zJhQIDAQABAoIBAQCMSmFVc4A7qndF
+    FZUAox37MHEhsMe5d8gnCiwyBmj03tPFSAw8PrFY2Nb+qcufHZ2Y0+qFhfM6K+M4
+    LM0Rw+3pETiXUs8/8/18zcajL0Ang1+1AZ4QRBiHYqVrOeIUZ/Ch9j7GNzAvjU9A
+    rNHYUZX9+VkerBDUuSzF7Fs565sU+2NBwq36M3iMV67Mh+YgOmv6G4VJeow+TNcd
+    vkVXK6VvD4p2iFHm7JcgbcdDnhAnl9nezdo40SKiYFZQtTbl4+fBGflfwq0MsM4a
+    LSYQoWPvzCUIc5st0lvVCk9UKR6P2QlP93Ieg2dp/nOcp8COQi8HnXCjGZ9P5jpb
+    hTpmhARhAoGBAPi+vgqePZuSZTlyN1L9YMGhjZRvThFfZbenqSD22Gd5ovyA+wCm
+    Y1kw/POjqDPxlTo74EEKfeFsmbuO0oV8f4etAXRJ8n4Vcoj09Xua32EdEgYF7vQL
+    bnmM92f1NGdNG2I2Nlf7z8pIW9tGfVVtmcifr+EUON5PbRYNr1gDWtVNAoGBANSa
+    tS/oCxKncScJAMHTVsEfjSKgAEF8dgwicbsFH/7VEBsZq6WmHNqKacVXgcIt5E+d
+    YwEyVwtwFyyMLK5YX0mrqpvZC78p/AVJ5vrGLcLmvtqskBgjNLtKjUVL4St0eH9e
+    vL5oa0mbP4S5ypycUcdCNCxa90rVf4erBc2th0kZAoGBAIwF87zObyfQNSMtZG9X
+    KsxVQPm53lxxMzU7MD3aNt+o3VL+2Ez5XRusM/iCvADhkXuCkS6L1Wi8VZ37PA7g
+    knmxrgvkRJktQZhPLJE0EWL9llPFq0m91aae7/aZVbKA+VVD5zuICOR57xt0hsE8
+    PUFugvdVBt4+H842TephmRRRAoGBAJLOOWrZKjw5TxMLTnCIxJEaflR4c3TEwqbi
+    afIgOdW3viVYdoQtziLCDQNtx3YURmELZr/+yMhnIDlsmbXR5Ap09ZwkJc5c6V+l
+    hk+H5TV+LC/HlMB2HwVtF1vQZ62gAUzCWEaKx/rNrvCxckzuTDHxbyFptvT/s840
+    tA8wUgiRAoGAVhPmckRnTKptY+C3bfdlMSqeJZBI2NLfrEKL5URftEpJrg3niGGl
+    ZFm1T9m21pTcXK3dnkBBe8KC3CHW/DWsG/xTvmkyQm8t5f3XWb6d0ciaRvq9vGU6
+    BcJUcdvg4sRTUj9CUCkdYqxkPGd4YkVBIbOOHh6aAFMENK5+9OGOUVY=
+    -----END RSA PRIVATE KEY-----
+
+
   pushCertificate:  notused
 
 awsAttachments:
