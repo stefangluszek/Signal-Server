@@ -2,6 +2,12 @@ testDevices:
   - number: "+13371337"
     code:   1337
 
+twilio:
+  accountId:
+  accountToken:
+  numbers:
+  - 1337
+
 limits:
   smsDestination:
     bucketSize:         1000
@@ -100,7 +106,31 @@ directory:
   server:
     replicationUrl:           notused
     replicationPassword:      notused
-    replicationCaCertificate: notused
+    # generated using the key from apn.pushKey with:
+    # openssl req -x509 -new -nodes -key ca.key -s6
+    replicationCaCertificate: |
+      -----BEGIN CERTIFICATE-----
+      MIIDazCCAlOgAwIBAgIUGxyOCo9tvWk8/fy6nGwt1vhJhn0wDQYJKoZIhvcNAQEL
+      BQAwRTELMAkGA1UEBhMCQVUxEzARBgNVBAgMClNvbWUtU3RhdGUxITAfBgNVBAoM
+      GEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZDAeFw0yMTAzMTkxODU1NDZaFw0yMTA0
+      MTgxODU1NDZaMEUxCzAJBgNVBAYTAkFVMRMwEQYDVQQIDApTb21lLVN0YXRlMSEw
+      HwYDVQQKDBhJbnRlcm5ldCBXaWRnaXRzIFB0eSBMdGQwggEiMA0GCSqGSIb3DQEB
+      AQUAA4IBDwAwggEKAoIBAQDOlEgshkg6RVPMAfe38Npg6ReOCADXWTQ/0EE6TI1P
+      Az30UpVDex3+WDLj1mRx6vawshkk48G4Fah9qu++HKd0hdhHzaawVmbiFIIRTRPU
+      yfq40PkLl0wCKHDFZr4FhZ3w45h352st8vWVTXbBLiBVrTOuVGxwfusqy39awKj4
+      qiCTFu6avvqBsQfUFZFikLWn7OXONfCTPbvPJsz92Gk40bZtFUjDRNk1a+6aRmRK
+      /mMaFE/VTiYzMxOD7RlVRlanDT/8Ob9Sza3wPWaQ26eRWn8u0lVBv5oAvjQlFLEO
+      l+WdKup7M32SNIjRNaTk7xV4HbMTNIXljYtar0G/TMmFAgMBAAGjUzBRMB0GA1Ud
+      DgQWBBQRwO77IE6dv2LvBdNC1jtArGhsojAfBgNVHSMEGDAWgBQRwO77IE6dv2Lv
+      BdNC1jtArGhsojAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQBB
+      2lDNjT3RrEVEi0Tm2XZ0ft4QXrE+1cOrig0gnTUkVAP87VDuTDJKwFkBmnN7Kfso
+      7j8kHvT4nnMTJzmple9/82+Ows7GwtDxoVcoFxoSke8WJkptt4FqK39JSHN7y61V
+      oO/0ghPl8l09nm285dlQq1vyz4M0Cd0ezbWs+NTGgz41j81Du/4Pc+BPpVBxALtZ
+      6ztaYF+Z7qL8KSDT+cVuzxqU/AUe5viR9TE8frJNXY9j7SRf38CTPmey7RHdotpg
+      ctXBQr5HrZ6OGsM0mPBTB2q7oPSMNcKZbm8xJ1F80AuR36/yFtXH0xnWTkKDjnox
+      chKPeYNr7sUQVjULqW2W
+      -----END CERTIFICATE-----
+
   sqs:
     accessKey:    notused
     accessSecret: notused
