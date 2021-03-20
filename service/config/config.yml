@@ -144,7 +144,62 @@ gcm:
 gcpAttachments:
   domain:         notused
   email:          notused
-  rsaSigningKey:  notused
+  # generate with:
+  # openssl genrsa -out rsa.pem 4096
+  # openssl pkcs8 -topk8 -in rsa.pem -nocrypt
+  rsaSigningKey:  |
+    -----BEGIN PRIVATE KEY-----
+    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
+    iJ0lF3HVeuRCMKVllMqPHcVGblnuGA==
+    -----END PRIVATE KEY-----
   maxSizeInBytes: 1000
 
 messageCache:
