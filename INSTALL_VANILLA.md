@@ -26,3 +26,6 @@ java -jar service/target/TextSecureServer-3.21.jar accountdb migrate service/con
 java -jar service/target/TextSecureServer-3.21.jar messagedb migrate service/config/config.yml
 java -jar service/target/TextSecureServer-3.21.jar abusedb migrate service/config/config.yml
 ```
+
+5. NOTES
+* websocket endpoint: `ws://localhost:8080/v1/websocket`
