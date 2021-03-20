@@ -22,7 +22,7 @@ postgres=# grant all privileges on database signal_accounts_db to signal;
 
 4. Migrate databases.
 ```
-java -jar service/target/textsecureserver-3.21.jar accountdb migrate service/config/config.yml
-java -jar service/target/textsecureserver-3.21.jar messagedb migrate service/config/config.yml
-java -jar service/target/textsecureserver-3.21.jar abusedb migrate service/config/config.yml
+java -jar service/target/TextSecureServer-3.21.jar accountdb migrate service/config/config.yml
+java -jar service/target/TextSecureServer-3.21.jar messagedb migrate service/config/config.yml
+java -jar service/target/TextSecureServer-3.21.jar abusedb migrate service/config/config.yml
 ```
