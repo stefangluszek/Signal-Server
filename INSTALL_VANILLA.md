@@ -29,3 +29,5 @@ java -jar service/target/TextSecureServer-3.21.jar abusedb migrate service/confi
 
 5. NOTES
 * websocket endpoint: `ws://localhost:8080/v1/websocket`
+* Signal server requires `X-Forwarded-For` header, otherwise it will index the NULL value with `.split`
+`curl -H "X-Forwarded-For: 127.0.0.1" -s 'http://localhost:8080/v1/accounts/sms/code/+13371337'`
