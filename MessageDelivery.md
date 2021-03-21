@@ -1,0 +1,6 @@
+# Online users
+If the recipient is online, has `fetchesMessages` attribute set to `true` the messages will be delivered through websocket. It's not directly pushed to the recipient websocket instead redis pub/sub functinoality is used. The receiver subscribe to a channel and the message is published to that channel. When you call publish in redis it return the number of clients that received the message. This is used to check if the message was delivered. If the message was not delivered through pub/sub we send the push notification and queue the message. Once the client connects after getting the push notification we will deliver queued messages.
+# Offline users
+For offline users messages are delivered with push notifications (APN or GCM).
+# Notes
+In a distributed Redis Cluster, only clients that are connected to the same node as the publishing client are included in the count. So I doubt this simple solution to deliver messages would work in a distributed redis cluster if sender and receiver are connected to two different Redis nodes unless they did something similar to what's described here: [Scaling Redis PubSub](https://redislabs.com/wp-content/uploads/2018/04/Redis-Day-TLV-2018-Scaling-Redis-PubSub.pdf), but sinlge redis node is claimed to be able to handle 100k pub/sub per seconde, perhaps that's enough for anyone?
