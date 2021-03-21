@@ -30,11 +30,10 @@ java -jar service/target/TextSecureServer-3.21.jar abusedb migrate service/confi
 5. NOTES
 * websocket endpoint: `ws://localhost:8080/v1/websocket`
 * Register a new user
-```
-curl -H "X-Forwarded-For: 127.0.0.1" -s 'http://localhost:8080/v1/accounts/sms/code/+13371337'
-curl -H "X-Forwarded-For: 127.0.0.1" -s 'http://localhost:8080/v1/accounts/sms/code/+13371337' \
---next -X PUT http://localhost:8080/v1/accounts/code/133337 \
--H 'Authorization: Basic KzEzMzcxMzM3OjEyMzQ1Njc4OTAxMjM0NTY=' \
--d '{"registrationId": 1337, "supportSms": false, "signalingKey": "jMxcQdxZ8zyDbPd9p0A8eZa618kAgZTXF1Hz0T5qx6JEb21ewYD1k59PzCH7fZ1FBXbv7g=="}' \
--H "Content-Type: application/json"
-```
+    ```
+    curl -H "X-Forwarded-For: 127.0.0.1" -s 'http://localhost:8080/v1/accounts/sms/code/+13371337' \
+    --next -X PUT http://localhost:8080/v1/accounts/code/133337 \
+    -H 'Authorization: Basic KzEzMzcxMzM3OjEyMzQ1Njc4OTAxMjM0NTY=' \
+    -d '{"registrationId": 1337, "supportSms": false, "signalingKey": "jMxcQdxZ8zyDbPd9p0A8eZa618kAgZTXF1Hz0T5qx6JEb21ewYD1k59PzCH7fZ1FBXbv7g==", "fetchesMessages": true}' \
+    -H "Content-Type: application/json"
+    ```
